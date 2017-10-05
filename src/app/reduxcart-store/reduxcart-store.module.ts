@@ -1,3 +1,4 @@
+import { IReduxCartState } from './state';
 import { rootReducer, INITIAL_STATE } from './';
 import { NgModule } from '@angular/core';
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
@@ -12,11 +13,20 @@ import { createLogger } from 'redux-logger';
   declarations: []
 })
 export class ReduxcartStoreModule {
-  constructor(store: NgRedux<any>) {
+  constructor(
+    store: NgRedux<IReduxCartState>,
+    devTools: DevToolsExtension,
+    ngReduxRouter: NgReduxRouter
+  ) {
     store.configureStore(
       rootReducer,
       INITIAL_STATE,
-      [createLogger()]
+      [createLogger()],
+      devTools.isEnabled() ? [devTools.enhancer()] : []
     );
+
+    if (ngReduxRouter) {
+      ngReduxRouter.initialize();
+    }
   }
 }

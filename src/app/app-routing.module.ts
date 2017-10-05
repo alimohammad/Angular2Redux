@@ -6,6 +6,11 @@ const routes: Routes = [
     path: 'product',
     loadChildren: 'app/product/product.module#ProductModule',
     data: { pageTitle: 'Product' },
+  },
+  {
+    path: '',
+    loadChildren: 'app/product/product.module#ProductModule',
+    data: { pageTitle: 'Product' },
   }
 ];
 

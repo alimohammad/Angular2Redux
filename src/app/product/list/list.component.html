@@ -1,3 +1,13 @@
 <p>
   list works!
 </p>
+<div>
+  <div *ngIf="products$ | async">
+    <div *ngFor="let product of products$ | async">
+      <span>{{product.name}}</span>
+      <img [src]="product.imageUrl" alt="Product Image"/>
+    </div>
+  </div>
+</div>
+
+{{products$ | async}}

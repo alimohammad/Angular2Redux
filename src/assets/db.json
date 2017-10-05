@@ -1,3 +1,10 @@
 {
-  "products":[]
+  "products":[
+    {
+      "id": 1,
+      "name": "T Shirt",
+      "price": 24,
+      "imageUrl": "https://tinyurl.com/y958r6g8"
+    }
+  ]
 }

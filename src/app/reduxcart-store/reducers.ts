@@ -7,5 +7,6 @@ import { shoppingCartReducer } from './../shopping-cart/store';
 
 export const rootReducer = combineReducers<IReduxCartState>({
   product: productReducer,
-  cart: shoppingCartReducer
+  cart: shoppingCartReducer,
+  router: routerReducer
 });
