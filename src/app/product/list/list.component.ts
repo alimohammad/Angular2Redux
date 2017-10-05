@@ -1,3 +1,4 @@
+import { ProductActions } from './../store/actions';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private actions: ProductActions) { }
 
   ngOnInit() {
+    this.actions.getProductList();
   }
 
 }
