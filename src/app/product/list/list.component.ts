@@ -1,3 +1,4 @@
+import { IReduxCartState } from './../../reduxcart-store/state';
 import { IProduct } from './../model/product';
 import { Observable } from 'rxjs/Observable';
 import { IProductState } from './../store/state';
@@ -10,7 +11,7 @@ import { select } from '@angular-redux/store';
   templateUrl: './list.component.html'
 })
 export class ListComponent implements OnInit {
-  @select((s: IProductState) => s.products)
+  @select((s: IReduxCartState) => s.product.products)
   products$: Observable<IProduct[]>;
   constructor(private service: ProductService) { }
 

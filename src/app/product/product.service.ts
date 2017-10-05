@@ -14,6 +14,7 @@ export class ProductService {
     return this.http.get('http://localhost:3000/products')
       .map(this.extractData)
       .subscribe((response: any) => {
+        console.log('service:', response);
         this.actions.getProductListSucceeded(response);
       }, (error: any) => {
         this.actions.getProductListFailed(error);
