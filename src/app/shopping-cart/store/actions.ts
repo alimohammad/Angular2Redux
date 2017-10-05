@@ -1,8 +1,9 @@
+import { ICartInfo } from './../model/cart';
 import { Injectable } from '@angular/core';
 import { FluxStandardAction } from 'flux-standard-action';
 import { dispatch } from '@angular-redux/store';
 
-type Payload = any;
+type Payload = ICartInfo;
 interface MetaData { cartState: {}; }
 export type ShoppingCartAction = FluxStandardAction<Payload, MetaData>;
 
@@ -13,11 +14,13 @@ export class ShoppingCartActions {
   static readonly ADD_ITEM_TO_CART_FDAILED = 'Add Item to Cart Failed';
 
   @dispatch()
-  addItemToCart = (payload: any): ShoppingCartAction => ({
-    type: ShoppingCartActions.ADD_ITEM_TO_CART,
-    payload,
-    meta: null
-  })
+  addItemToCart = (payload: ICartInfo): ShoppingCartAction => (
+    {
+      type: ShoppingCartActions.ADD_ITEM_TO_CART,
+      payload,
+      meta: null
+    }
+  )
 
   @dispatch()
   addItemToCartSucceeded = (): ShoppingCartAction => ({

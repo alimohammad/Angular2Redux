@@ -1,12 +1,10 @@
-<p>
-  list works!
-</p>
 <div>
   <div *ngIf="products$ | async">
     <div *ngFor="let product of products$ | async">
       <span>{{product.name}}</span>
-      <img [src]="product.imageUrl" alt="Product Image"/>
+      <img style="width: 100px;" [src]="product.imageUrl" alt="Product Image"/>
       <button (click)="showThisProductDetails(product)">Detail</button>
+      <button (click)="addToCart(product)">Add to Cart</button>
     </div>
   </div>
 </div>

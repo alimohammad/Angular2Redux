@@ -1,3 +1,5 @@
+import { CartInfoComponent } from './shopping-cart/cart-info/cart-info.component';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { ACTION_SERVICE_PROVIDERS } from './app-global.provider';
 import { ReduxcartStoreModule } from './reduxcart-store/reduxcart-store.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +11,8 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CartInfoComponent
   ],
   imports: [
     BrowserModule,

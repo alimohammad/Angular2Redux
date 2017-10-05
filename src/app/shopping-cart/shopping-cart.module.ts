@@ -9,6 +9,7 @@ import { CartInfoComponent } from './cart-info/cart-info.component';
     CommonModule,
     ShoppingCartRoutingModule
   ],
-  declarations: [CartInfoComponent]
+  declarations: [CartInfoComponent],
+  exports: [CartInfoComponent]
 })
 export class ShoppingCartModule { }
