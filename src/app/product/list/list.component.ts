@@ -1,3 +1,4 @@
+import { ProductActions } from './../store/actions';
 import { IReduxCartState } from './../../reduxcart-store/state';
 import { IProduct } from './../model/product';
 import { Observable } from 'rxjs/Observable';
@@ -13,11 +14,14 @@ import { select } from '@angular-redux/store';
 export class ListComponent implements OnInit {
   @select((s: IReduxCartState) => s.product.products)
   products$: Observable<IProduct[]>;
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService, private actions: ProductActions) { }
 
   ngOnInit() {
     this.service.getProducts();
-    console.log(this.products$);
+  }
+
+  public showThisProductDetails(data: any) {
+    this.actions.productSelectedEvent(data);
   }
 
 }

@@ -6,8 +6,7 @@
     <div *ngFor="let product of products$ | async">
       <span>{{product.name}}</span>
       <img [src]="product.imageUrl" alt="Product Image"/>
+      <button (click)="showThisProductDetails(product)">Detail</button>
     </div>
   </div>
 </div>
-
-{{products$ | async}}

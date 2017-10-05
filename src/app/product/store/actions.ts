@@ -12,6 +12,7 @@ export class ProductActions {
   static readonly GET_PRODUCTS = 'Start Getting Products';
   static readonly GET_PRODUCTS_SUCCEEDED = 'Getting Products Succeeded';
   static readonly GET_PRODUCTS_FAILED = 'Getting Products Failed';
+  static readonly PRODUCT_SELECTED = 'Product Selected Event';
 
   @dispatch()
   getProductList = (): ProductAction => ({
@@ -33,6 +34,13 @@ export class ProductActions {
     payload: null,
     meta: null,
     error
+  })
+
+  @dispatch()
+  productSelectedEvent = (payload: any): ProductAction => ({
+    type: ProductActions.PRODUCT_SELECTED,
+    payload,
+    meta: null
   })
 }
 

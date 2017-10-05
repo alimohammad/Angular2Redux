@@ -21,6 +21,15 @@ export function productReducer(state: IProductState = PRODUCT_INITIAL_STATE, a: 
         ...state,
         error: state.error = action.error
       };
+    case ProductActions.PRODUCT_SELECTED:
+      return {
+        ...state,
+        // Very import point to be noted, updated hierarichal states.
+        uiState: {
+          ...state.uiState,
+          selectedProduct: action.payload
+        }
+      };
     default:
       return state;
   }
