@@ -25,10 +25,6 @@ export class ReduxcartStoreModule {
     rootEpics: RootEpics
   ) {
 
-    const middleware = [
-      // createEpicMiddleware(productEpics.fetchProducts)
-    ];
-
     store.configureStore(
       rootReducer,
       INITIAL_STATE,
