@@ -14,6 +14,9 @@ export class ProductActions {
   static readonly GET_PRODUCTS_SUCCEEDED = 'Getting Products Succeeded';
   static readonly GET_PRODUCTS_FAILED = 'Getting Products Failed';
   static readonly PRODUCT_SELECTED = 'Product Selected Event';
+  static readonly SHOW_PRODUCT_SELECTED = 'Show Product Selected';
+  static readonly SHOW_PRODUCT_SELECTED_SUCCEEDED = 'Show Product Selected Succeeded';
+  static readonly SHOW_PRODUCT_SELECTED_FAILED = 'Show Product Selected Failed';
 
   @dispatch()
   getProductList = (): ProductAction => ({
@@ -48,6 +51,27 @@ export class ProductActions {
   productSelectedEvent = (payload: any): ProductAction => ({
     type: ProductActions.PRODUCT_SELECTED,
     payload,
+    meta: null
+  })
+
+  @dispatch()
+  showProductDetail = (): ProductAction => ({
+    type: ProductActions.SHOW_PRODUCT_SELECTED,
+    payload: null,
+    meta: null
+  })
+
+  @dispatch()
+  showProductDetailSucceeded = (): ProductAction => ({
+    type: ProductActions.SHOW_PRODUCT_SELECTED_SUCCEEDED,
+    payload: null,
+    meta: null
+  })
+
+  @dispatch()
+  showProductDetailFailed = (): ProductAction => ({
+    type: ProductActions.SHOW_PRODUCT_SELECTED_FAILED,
+    payload: null,
     meta: null
   })
 }

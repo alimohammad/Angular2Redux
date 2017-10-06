@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { IReduxCartState } from './../../reduxcart-store/state';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
@@ -42,5 +43,13 @@ export class ProductEpics {
         .map(data => (this.productionActions.getProductListSucceeded(data.json())))
         .catch(error => of(this.productionActions.getProductListFailed(error)))
         .startWith(this.productionActions.getProductStart()));
+  }
+
+  private showProductDetailEpic(): Epic<ProductAction, IReduxCartState> {
+    return (action$, store) => action$
+      .ofType(ProductActions.PRODUCT_SELECTED)
+      .map(data => (this.productionActions.showProductDetailSucceeded()))
+      .catch(error => of(this.productionActions.showProductDetailFailed()))
+      .startWith(this.productionActions.showProductDetail());
   }
 }

@@ -8,6 +8,7 @@ import { IProductState } from './../store/state';
 import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -19,7 +20,8 @@ export class ListComponent implements OnInit {
   constructor(
     // private service: ProductService,
     private actions: ProductActions,
-    private cartActions: ShoppingCartActions) { }
+    private cartActions: ShoppingCartActions,
+    private router: Router) { }
 
   ngOnInit() {
     this.actions.getProductList();
@@ -28,6 +30,7 @@ export class ListComponent implements OnInit {
 
   public showThisProductDetails(data: any) {
     this.actions.productSelectedEvent(data);
+    this.router.navigate(['/detail']);
   }
 
   public addToCart(product: IProduct) {
