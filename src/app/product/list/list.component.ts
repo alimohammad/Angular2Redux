@@ -17,12 +17,13 @@ export class ListComponent implements OnInit {
   @select((s: IReduxCartState) => s.product.products)
   products$: Observable<IProduct[]>;
   constructor(
-    private service: ProductService,
+    // private service: ProductService,
     private actions: ProductActions,
     private cartActions: ShoppingCartActions) { }
 
   ngOnInit() {
-    this.service.getProducts();
+    this.actions.getProductList();
+    // this.service.getProducts();
   }
 
   public showThisProductDetails(data: any) {

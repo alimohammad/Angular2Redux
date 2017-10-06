@@ -13,6 +13,6 @@ import { DetailComponent } from './detail/detail.component';
     productRouting
   ],
   declarations: [ListComponent, DetailComponent],
-  providers: [ProductService]
+  providers: []
 })
 export class ProductModule { }

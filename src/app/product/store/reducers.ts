@@ -8,6 +8,11 @@ export function productReducer(state: IProductState = PRODUCT_INITIAL_STATE, a: 
     case ProductActions.GET_PRODUCTS:
       return {
         ...state,
+        loading: false
+      };
+    case ProductActions.GET_PRODUCTS_STARTED:
+      return {
+        ...state,
         loading: true
       };
     case ProductActions.GET_PRODUCTS_SUCCEEDED:
